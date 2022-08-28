@@ -4119,7 +4119,7 @@ Minecraft уже решает большинство таких задач за 
 <li><strong>Message</strong> – (одно-два слова) описывает действие которое выполняет пакет. На нашем случае - отправка сообщения игроку.</li>
 <li>Суффикс <strong>Packet</strong> или <strong>Message</strong> – означает что данный класс представляет из себя пакет.</li>
 </ul>
-<p>Даже Mojang придерживается определённой схемы именования. Посмотрите названия классов в пакете <code>net.minecraft.network</code></p>
+<p>Даже Mojang придерживается определённой схемы именования. Посмотрите на названия классов в пакете <code>net.minecraft.network</code></p>
 </details>
 <div class="highlight"><span class="filename">ServerMessagePacket.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">ru.mcmodding.tutorial.common.handler.packet</span><span class="p">;</span><span class="w"></span>
 
@@ -4236,7 +4236,7 @@ Minecraft уже решает большинство таких задач за 
 </tr>
 <tr>
 <td><code>sendToAllAround(IMessage, TargetPoint)</code></td>
-<td>Отправляет пакет всем игрокам находящимся радиусе.<br /> SERVER → CLIENT</td>
+<td>Отправляет пакет всем игрокам находящимся определённом радиусе от заданной точки.<br /> SERVER → CLIENT</td>
 </tr>
 <tr>
 <td><code>sendToDimension(IMessage, int)</code></td>
