@@ -1349,22 +1349,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#сохранение-itemstack" class="md-nav__link">
-    Сохранение ItemStack
+  <a href="#itemstack" class="md-nav__link">
+    ItemStack
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#сохранение-tileentity" class="md-nav__link">
-    Сохранение TileEntity
+  <a href="#tileentity" class="md-nav__link">
+    TileEntity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#сохранение-entity" class="md-nav__link">
-    Сохранение Entity
+  <a href="#entity" class="md-nav__link">
+    Entity
   </a>
   
 </li>
@@ -4024,22 +4024,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#сохранение-itemstack" class="md-nav__link">
-    Сохранение ItemStack
+  <a href="#itemstack" class="md-nav__link">
+    ItemStack
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#сохранение-tileentity" class="md-nav__link">
-    Сохранение TileEntity
+  <a href="#tileentity" class="md-nav__link">
+    TileEntity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#сохранение-entity" class="md-nav__link">
-    Сохранение Entity
+  <a href="#entity" class="md-nav__link">
+    Entity
   </a>
   
 </li>
@@ -4071,7 +4071,8 @@
 <h1 id="nbt">NBT<a class="headerlink" href="#nbt" title="Permanent link">#</a></h1>
 <p>Формат NBT (Named Binary Tag) широко используется Minecraft в различных файлах для хранения данных.
 Представляет из себя древовидную структуру данных, состоящую из различных тегов.
-Каждый тег имеет идентификатор и название.</p>
+Каждый тег имеет идентификатор и название.
+Вы регулярно будете сталкиваться с NBT, когда будете реализовывать сохранение и восстановление состояния различных объектов.</p>
 <h2 id="список-тегов">Список тегов<a class="headerlink" href="#список-тегов" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -4144,12 +4145,16 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p>Подробное описание всех тегов NBT с техническими деталями есть в <a href="https://minecraft.fandom.com/ru/wiki/NBT">Minecraft Wiki</a>. <br />
-В Minecraft 1.7.10 нет тега <code>LONG_ARRAY</code> – он появился в более поздних версиях игры.</p>
+<div class="admonition note">
+<ul>
+<li>Подробное описание всех тегов NBT с техническими деталями есть в <a href="https://minecraft.fandom.com/ru/wiki/NBT">Minecraft Wiki</a>. <br />
+  В <strong>Minecraft 1.7.10</strong> отсутствует тег <code>LONG_ARRAY</code> – он появился в более поздних версиях игры.</li>
+<li>Приведённая таблица типов в основном пригодится при использовании метода <code>NBTTagCompound#hasKey(String, int)</code> для передачи ID тега вторым параметром.</li>
+<li>Актуальный ID тега всегда можно подсмотреть прямо в коде игры в методе <code>getId()</code> нужного тега.</li>
+</ul>
 </div>
 <details class="danger">
-<summary>Вредные и опасные действия с NBT</summary>
+<summary>Чего делать с NBT категорически нельзя</summary>
 <ul>
 <li>Список <code>NBTTagList</code> может содержать только теги одного типа. При попытке добавить тег другого типа, игра выдаст предупреждение.</li>
 <li>Не допускайте зацикливания ссылок на теги – это когда дочерние элементы тега могут являться ссылкой на родительский элемент выше.
@@ -4161,7 +4166,7 @@
 </details>
 <h2 id="примеры-работы-с-nbt">Примеры работы с NBT<a class="headerlink" href="#примеры-работы-с-nbt" title="Permanent link">#</a></h2>
 <p>Ниже приведены примеры записи и чтения различных объектов в NBT, которые могут пригодиться в процессе разработки модификации.</p>
-<h3 id="сохранение-itemstack">Сохранение ItemStack<a class="headerlink" href="#сохранение-itemstack" title="Permanent link">#</a></h3>
+<h3 id="itemstack">ItemStack<a class="headerlink" href="#itemstack" title="Permanent link">#</a></h3>
 <p>Этот пример кода будет использоваться наиболее для для сохранения содержимого инвентаря блока и других объектов.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.init.Items</span><span class="p">;</span><span class="w"></span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.item.ItemStack</span><span class="p">;</span><span class="w"></span>
@@ -4176,7 +4181,7 @@
 <span class="c1">// Чтение</span><span class="w"></span>
 <span class="n">ItemStack</span><span class="w"> </span><span class="n">restored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ItemStack</span><span class="p">.</span><span class="na">loadItemStackFromNBT</span><span class="p">(</span><span class="n">compound</span><span class="p">);</span><span class="w"> </span><span class="c1">// Может вернуть null если предмет не существует</span><span class="w"></span>
 </code></pre></div>
-<h3 id="сохранение-tileentity">Сохранение TileEntity<a class="headerlink" href="#сохранение-tileentity" title="Permanent link">#</a></h3>
+<h3 id="tileentity">TileEntity<a class="headerlink" href="#tileentity" title="Permanent link">#</a></h3>
 <p>Обычно сохранением тайлов занимается игра, данный код может пригодиться для сохранения и перемещения тайла в другое место. </p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.nbt.NBTTagCompound</span><span class="p">;</span><span class="w"></span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.tileentity.TileEntity</span><span class="p">;</span><span class="w"></span>
@@ -4191,7 +4196,7 @@
 <span class="c1">// ПРИМЕЧАНИЕ: При перемещении на другое место, не забудьте изменить значения ключей x,y,z тега на новые координаты</span><span class="w"></span>
 <span class="n">TileEntity</span><span class="w"> </span><span class="n">restored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TileEntity</span><span class="p">.</span><span class="na">createAndLoadEntity</span><span class="p">(</span><span class="n">compound</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<h3 id="сохранение-entity">Сохранение Entity<a class="headerlink" href="#сохранение-entity" title="Permanent link">#</a></h3>
+<h3 id="entity">Entity<a class="headerlink" href="#entity" title="Permanent link">#</a></h3>
 <p>Сохранением существ обычно занимается игра. Данный пример может пригодиться, например для консервации моба в банку, чтобы позже заспавнить его в другом месте.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.entity.Entity</span><span class="p">;</span><span class="w"></span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.entity.EntityList</span><span class="p">;</span><span class="w"></span>
