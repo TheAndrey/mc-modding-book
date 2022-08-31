@@ -4112,7 +4112,7 @@
 
 <h1 id="nbt">NBT<a class="headerlink" href="#nbt" title="Permanent link">#</a></h1>
 <p>Формат NBT (Named Binary Tag) широко используется Minecraft в различных файлах для хранения данных.
-Представляет из себя древовидную структуру данных, состоящую из различных тегов.
+Представляет собой древовидную структуру данных, состоящую из различных тегов.
 Каждый тег имеет идентификатор и название.</p>
 <h2 id="список-тегов">Список тегов<a class="headerlink" href="#список-тегов" title="Permanent link">#</a></h2>
 <table>
@@ -4245,7 +4245,6 @@
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="n">items</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ItemStack</span><span class="p">.</span><span class="na">loadItemStackFromNBT</span><span class="p">(</span><span class="n">tagList</span><span class="p">.</span><span class="na">getCompoundTagAt</span><span class="p">(</span><span class="n">i</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-
 <span class="w">    </span><span class="c1">// ...</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -4255,7 +4254,7 @@
 <li>Получаем <code>NBTTagList</code>, содержащий элементы <strong>COMPOUND</strong>. Если элементы будут другого типа, вернёт пустой список.</li>
 </ol>
 <h3 id="itemstack">ItemStack<a class="headerlink" href="#itemstack" title="Permanent link">#</a></h3>
-<p>Этот пример кода будет использоваться наиболее для для сохранения содержимого инвентаря блока и других объектов.</p>
+<p>Этот пример кода будет использоваться наиболее для сохранения содержимого инвентаря блока и других объектов.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.init.Items</span><span class="p">;</span><span class="w"></span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.item.ItemStack</span><span class="p">;</span><span class="w"></span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.nbt.NBTTagCompound</span><span class="p">;</span><span class="w"></span>
