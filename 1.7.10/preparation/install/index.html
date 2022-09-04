@@ -445,6 +445,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#инициализация-forgegradle" class="md-nav__link">
+    Инициализация ForgeGradle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#среда-разработки-ide" class="md-nav__link">
     Среда разработки (IDE)
   </a>
@@ -4059,6 +4066,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#инициализация-forgegradle" class="md-nav__link">
+    Инициализация ForgeGradle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#среда-разработки-ide" class="md-nav__link">
     Среда разработки (IDE)
   </a>
@@ -4152,6 +4166,41 @@
 <span class="o">}</span><span class="w"></span>
 </code></pre></div></li>
 </ol>
+<h2 id="инициализация-forgegradle">Инициализация ForgeGradle<a class="headerlink" href="#инициализация-forgegradle" title="Permanent link">#</a></h2>
+<p>Теперь мы можем инициализировать среду разработки, чтобы ForgeGradle подготовил необходимые файлы для нас.
+Для этого выполните следующую команду в командной строке (терминале). Вариант отличается в зависимости от ОС и используемой оболочки.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Windows (CMD)</span>
+gradlew setupDecompWorkspace
+<span class="c1"># Windows (PowerShell)</span>
+.<span class="se">\g</span>radlew setupDecompWorkspace
+<span class="c1"># Linux / MacOS</span>
+./gradlew setupDecompWorkspace
+</code></pre></div>
+<p>Подготовка займёт несколько минут в зависимости от производительности вашего компьютера и скорости интернета.
+По завершении вы должны увидеть сообщение «BUILD SUCCESSFUL».</p>
+<div class="admonition warning">
+<p class="admonition-title">Важно</p>
+<p>Команду надо выполнять находясь в каталоге проекта, иначе получите ошибку «Неизвестная команда/файл». <br />
+В случае ОС Windows, откройте командную строку с помощью <span class="keys"><kbd>ПКМ</kbd><span>+</span><kbd class="key-shift">Shift</kbd></span> в свободной области окна проводника с файлами проекта, выбрав соответствующий пункт меню.</p>
+</div>
+<details class="question">
+<summary>Как задать переменную JAVA_HOME?</summary>
+<p>При работе с Gradle из командной строки (терминала) требуется указание пути к JDK с помощью переменной окружения <strong>JAVA_HOME</strong>.
+Временно задать путь для текущего сеанса можно следующей командой в зависимости от ОС и оболочки.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Windows (CMD)</span>
+SET <span class="nv">JAVA_HOME</span><span class="o">=</span><span class="s2">&quot;C:\Program Files\Java\jdk1.8.0_341&quot;</span>
+<span class="c1"># Windows (PowerShell)</span>
+<span class="nv">$env</span>:JAVA_HOME <span class="o">=</span> <span class="s2">&quot;C:\Program Files\Java\jdk1.8.0_341&quot;</span>
+<span class="c1"># Linux / MacOS</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span> <span class="o">=</span> <span class="s1">&#39;/usr/lib/jvm/jdk1.8.0_341&#39;</span>
+</code></pre></div>
+<p>Не забудьте изменить путь к JDK на актуальный. И не закрывайте окно терминала - все остальные команды Gradle нужно вводить в этом же окне.</p>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Информация</p>
+<p>Настройка среды ForgeGradle производится всего один раз на ПК.
+Вам не потребуется повторно вводить команду для остальных проектов, разрабатываемых на той же версии Forge и Minecraft (версия указывается в <strong>build.gradle</strong> в <code>minecraft.version</code>).</p>
+</div>
 <h2 id="среда-разработки-ide">Среда разработки (IDE)<a class="headerlink" href="#среда-разработки-ide" title="Permanent link">#</a></h2>
 <p>Моды можно писать и в блокноте, но это очень неудобно. Нам нужна специализированная программа, которая
 умеет подсвечивать код, выполнять авто-импорт и делать много других полезных вещей.</p>
