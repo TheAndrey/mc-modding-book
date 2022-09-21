@@ -4102,7 +4102,12 @@
 </ol>
 <p>В качестве ингредиентов для рецепта крафта можно передавать <code>Block</code>, <code>Item</code> и <code>ItemStack</code>.
 Первые два варианта удобны, если нужно разрешить использовать в крафте предметы с любым значением meta/damage,
-а <code>ItemStack</code> когда нужно задать определённое значение <code>ItemStack</code></p>
+а <code>ItemStack</code> когда нужно задать определённое значение <strong>damage</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Магия wildcard damage</p>
+<p>Аргументы <code>Block</code> и <code>Item</code> переданные в рецепт автоматически конвертируются в <code>ItemStack</code> с указанием магического значения damage – <strong>32767</strong> (или <code>Short.MAX_VALUE</code>).
+Потому что в сетке крафта ничего другого как <code>ItemStack</code> быть не может.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Ограничение верстака</p>
 <p>При крафте ресурсы в сетке расходуются <strong>строго по одной единице за раз</strong> и это поведение никак не изменить.
@@ -4164,8 +4169,9 @@
 <li><code>GameRegistry#addSmelting(Item, ItemStack, float)</code></li>
 <li><code>GameRegistry#addSmelting(ItemStack, ItemStack, float)</code></li>
 </ol>
-<p>Где первым параметром является исходный предмет/блок для плавки, вторым результат плавки, а третьим кол-во опыта получаемого при
-плавлении предмета/блок. Добавим возможность плавить рубиновую руду в рубины.</p>
+<p>Первым параметром является исходный предмет/блок для плавки, вторым результат плавки, а третьим кол-во опыта получаемого при
+плавлении предмета/блок. Первые два метода предназначены для упрощённого добавления рецепта <code>ItemStack</code> с указанием <strong>wildcard damage</strong>. </p>
+<p>Добавим возможность плавить рубиновую руду в рубины:</p>
 <div class="highlight"><span class="filename">Пример рецепта плавления</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">ru.mcmodding.tutorial.common.handler</span><span class="p">;</span><span class="w"></span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">cpw.mods.fml.common.registry.GameRegistry</span><span class="p">;</span><span class="w"></span>
